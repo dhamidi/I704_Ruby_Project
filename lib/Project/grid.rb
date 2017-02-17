@@ -10,7 +10,6 @@ class Grid
   def initialize(rows,columns)
     @rows = rows
     @columns = columns
-    
     @grid = set_up
     configure_cells
   end
@@ -30,8 +29,8 @@ class Grid
   def configure_cells
     each_cell do |cell|      
       row, col   = cell.row, cell.column
-      cell.up    = self[row-1, col]
-      cell.down  = self[row+1, col]
+      cell.up    = self[row - 1, col]
+      cell.down  = self[row + 1, col]
       cell.left  = self[row, col - 1]
       cell.right = self[row, col + 1]
     end
@@ -87,7 +86,7 @@ class Grid
         else
           body = "   "
         end
-
+        
         right_border = (cell.connected?(cell.right) ? " " : "|")
         top << body << right_border
 
@@ -99,6 +98,5 @@ class Grid
       output << bottom << "\n"
     end
     output
-  end
-        
+  end        
 end

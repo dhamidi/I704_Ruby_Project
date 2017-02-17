@@ -1,4 +1,12 @@
 require 'grid'
+require 'binary_tree'
 
-example2 = Grid.new(10,10)
-puts example2.to_s
+example = Grid.new(15,15)
+
+BinaryTree.binary(example)
+puts example.to_s
+
+#example.[](3,3).connections.each do |con|
+#  puts con
+#  puts "now Im here"
+#end

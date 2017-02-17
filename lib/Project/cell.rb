@@ -10,22 +10,18 @@ class Cell
     @player = false
     @connections = {}
   end
-
   
-  def connect(cell, two_way=true)
+  def connect(cell, two_way = true)
     @connections[cell] = true
     cell.connect(self, false) if two_way
     self
   end
 
   def connected?(cell)
-    connection = false
-    @connections.each do |link|
-      if link == cell
-        connection = true
-      end
-    end
-    return connection
+    @connections.key?(cell)
   end
-  
+
+  def connections
+    @connections.keys
+  end
 end
