@@ -47,9 +47,10 @@ class Grid
 
   #picks a random cell on the grid; rand(value) picks number between 0 and value-1
   def random_cell
-    row = rand(@row)
+    row = rand(@rows)
     column = rand(@grid[row].count)
-    self[row][column]
+    puts column
+    @grid[row][column]
   end
 
   
@@ -81,7 +82,7 @@ class Grid
       corner = "+"
 
       row.each do |cell|
-        if cell.player
+        if cell.is_player?
           body = " @ "
         else
           body = "   "

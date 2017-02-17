@@ -7,7 +7,7 @@ class Cell
   
   def initialize(row, column)
     @row, @column = row, column
-    @player = false
+    @player = FALSE
     @connections = {}
   end
   
@@ -23,5 +23,13 @@ class Cell
 
   def connections
     @connections.keys
+  end
+
+  def set_player(value)
+    self.player = value
+  end
+
+  def is_player?
+    return @player
   end
 end
