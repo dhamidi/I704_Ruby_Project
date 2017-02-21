@@ -3,9 +3,12 @@ require 'remedy'
 class GamePlay
   include Remedy
   def self.start(maze)
-    #player = maze.random_cell
-    player = maze.[](14,14)
+    puts maze.grid[0].count-1
+    puts maze.rows-1
+    player = maze.[](0,maze.grid[0].count-1)
+    target = maze.[](maze.rows-1,0)
     player.set_player(true)
+    target.set_target(true)
     puts maze.to_s
     
     user_input = Interaction.new
@@ -18,7 +21,7 @@ class GamePlay
       end
       
       #Up key
-      if key == "\e[A" then
+      if key == "\e[A"
         if player.connected?(player.up)
           player.set_player(false)
           player = player.up
@@ -27,7 +30,7 @@ class GamePlay
       end
       
       #Down key
-      if key == "\e[B" then
+      if key == "\e[B"
         if player.connected?(player.down)
           player.set_player(false)
           player = player.down
@@ -36,7 +39,7 @@ class GamePlay
       end
       
       #Right key
-      if key == "\e[C" then
+      if key == "\e[C"
         if player.connected?(player.right)
           player.set_player(false)
           player = player.right
@@ -45,7 +48,7 @@ class GamePlay
       end
       
       #Left key
-      if key == "\e[D" then
+      if key == "\e[D"
         if player.connected?(player.left)
           player.set_player(false)
           player = player.left
@@ -54,6 +57,11 @@ class GamePlay
       end
 
       puts maze.to_s
+
+      if player == target
+        puts "whoopie!"
+      end
+        
     end
   end
 end

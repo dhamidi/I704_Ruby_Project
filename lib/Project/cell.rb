@@ -1,13 +1,12 @@
 class Cell
   attr_reader :row, :column
-  attr_accessor :up, :down, :left, :right, :player
+  attr_accessor :up, :down, :left, :right, :player, :target
 
   #Initializes relevant instance variables; coordinates / connections hash which will be
   #populated by maze creating algorithm + variable to determine if player inhabits this node or not
   
   def initialize(row, column)
     @row, @column = row, column
-    @player = FALSE
     @connections = {}
   end
   
@@ -32,4 +31,13 @@ class Cell
   def is_player?
     return @player
   end
+
+  def set_target(value)
+    self.target = value
+  end
+
+  def is_target?
+    return @target
+  end
+  
 end

@@ -2,7 +2,7 @@ require 'cell'
 
 class Grid
  
-  attr_reader :rows, :columns
+  attr_reader :rows, :columns, :grid
 
   #Sets the dimensions of the grid upon creation of object
   #Creates the 2-dimensional array and configures each cell within with
@@ -84,6 +84,8 @@ class Grid
       row.each do |cell|
         if cell.is_player?
           body = " @ "
+        elsif cell.is_target?
+          body = " & "
         else
           body = "   "
         end
